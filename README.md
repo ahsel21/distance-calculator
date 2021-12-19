@@ -5,6 +5,13 @@
 * CrowFlight - с помощью формулы вычисления дистанции на сфере.
 * DistanceMatrix - с помощью матрицы дистанций из базы.
 
+###Стек:
+* Spring + Tomcat
+* Maven
+* MySQL DB
+* Liquibase
+* Java 11
+
 ###Использование:
 1. Запустить приложение.
 
@@ -21,7 +28,7 @@
 
         http://localhost:8080/input 
    Пример:
-   ![offers](https://github.com/ahsel21/bank/blob/master/src/main/resources/offers.png)
+   ![offers](https://github.com/ahsel21/distance-calculator/blob/master/src/main/resources/docs/input.png)
 
 
 3. Просмотр списка городов из БД.
@@ -31,7 +38,7 @@
         http://localhost:8080/city
    
    Пример:
-   ![offers](https://github.com/ahsel21/bank/blob/master/src/main/resources/offers.png)
+   ![offers](https://github.com/ahsel21/distance-calculator/blob/master/src/main/resources/docs/city.png)
 
 
 4. Вычисление дистанции.
@@ -53,4 +60,4 @@
    Графа "type" может принимать конкретный тип вычисления (Например "CROWFLIGHT" или "DISTANCE_MATRIX")
 
    Пример:
-   ![offers](https://github.com/ahsel21/bank/blob/master/src/main/resources/offers.png)
+   ![offers](https://github.com/ahsel21/distance-calculator/blob/master/src/main/resources/docs/distance.png)
