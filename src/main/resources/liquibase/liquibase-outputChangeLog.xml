@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="Workstation (generated)" id="1639902592671-1">
+        <createTable tableName="city">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="latitude" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="longitude" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Workstation (generated)" id="1639902592671-2">
+        <createTable tableName="distance">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="distance" type="DOUBLE"/>
+            <column name="from_city" type="BIGINT"/>
+            <column name="to_city" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Workstation (generated)" id="1639902592671-3">
+        <createIndex indexName="FK7y4v8qplaejmcexm426osoq7e" tableName="distance">
+            <column name="to_city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Workstation (generated)" id="1639902592671-4">
+        <createIndex indexName="FKcvbfehc62ynjdi5pex4v301jt" tableName="distance">
+            <column name="from_city"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Workstation (generated)" id="1639902592671-5">
+        <addForeignKeyConstraint baseColumnNames="to_city" baseTableName="distance" constraintName="FK7y4v8qplaejmcexm426osoq7e" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="city"/>
+    </changeSet>
+    <changeSet author="Workstation (generated)" id="1639902592671-6">
+        <addForeignKeyConstraint baseColumnNames="from_city" baseTableName="distance" constraintName="FKcvbfehc62ynjdi5pex4v301jt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="city"/>
+    </changeSet>
+</databaseChangeLog>
